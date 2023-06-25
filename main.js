@@ -1,4 +1,4 @@
-    // for color changing
+    // for random Button generation
     function RandomNumber(){
     var randomNumber = Math.random()*78;
     randomNumber = Math.floor(randomNumber)+1;
@@ -6,43 +6,25 @@
     }
 
 
-//for any button first clicked by user 
-for(var i=0;i<78;i++){
-        
-    var clickedHere = document.querySelectorAll("button")[i].addEventListener("click",colorRandom);
-    if(clickedHere==true){
-        afterClick();
+    //for first click to change color
+    var selected,i;
+    for( i=0;i<78;i++){
+        document.querySelectorAll("button")[i].addEventListener("click",colorChange);
+        document.querySelectorAll("button")[i+1].addEventListener("click",colorReverse);
     }
-    
-}
-function afterClick(){
-    document.querySelectorAll("button")[i].addEventListener("click",otherColor);
-}
+
+    function colorChange(){
+        alert("Search Karo");
+        random = RandomNumber();
+       selected= document.querySelectorAll("button")[random];
+       selected.classList.add("buttonRandom");
+       
+    }
+
+    //for clicking again color shift to another and the present one toggles of
+
+    function colorReverse(){
+        selected.classList.toggle("buttonRandom");
+    }
 
 
-
-
-
-
-// for clicking
-function colorRandom(){
-    alert("Search Karo");
-    document.querySelectorAll("button")[RandomNumber()].classList.add("buttonRandom");
-    afterClick();
-    
-}
-
-// for and 2nd, 3rd button clicked by user
-
-
-function otherColor(){
-    // alert("Search karo");
-    document.querySelectorAll("button")[RandomNumber()].classList.add("");
-}
-
-// function randomReccursion(){
-//     if(random==1){
-//         return 1;
-//     }
-//     randomReccursion(randomNumber-1);
-// }
